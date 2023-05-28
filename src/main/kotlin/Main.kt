@@ -1,7 +1,14 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+fun main() {
+    WallService.add(Post(ownerId = 1, text = "14120"))
+    //Thread.sleep(1000)
+    WallService.add(Post(ownerId = 1, text = "132249"))
+    WallService.add(Post(ownerId = 2, text = "141303"))
+    WallService.add(Post(ownerId = 2, text = "402010"))
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+    WallService.add(Post(ownerId = 3, text = "222222", likes = Likes(canLike = true)))
+
+    WallService.update(Post(id = 2, text = "replaced", comments = Comments(canClose = true)))
+    WallService.update(Post(id = 1, text = "new text", comments = Comments(canOpen = true), canPin = false))
+
+    println(WallService)
 }
